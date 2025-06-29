@@ -10,6 +10,12 @@ class VariableDeclaration:
         self.var_type = var_type
         self.names = names
 
+class BinaryExpression:
+    def __init__(self, left, operator, right):
+        self.left = left
+        self.operator = operator
+        self.right = right
+
 class Assignment:
     def __init__(self, var_name, expression):
         self.var_name = var_name
