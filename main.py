@@ -1,5 +1,5 @@
 
-from src.syntatic_tree import Program, Command, VariableDeclaration, Assignment, Literal, VariableReference, RepeatLoop
+from src.syntatic_tree import Program, Command, VariableDeclaration, Assignment, Literal, VariableReference, RepeatLoop, BinaryExpression
 
 def main():
     # Exemplo da input 1
@@ -52,8 +52,10 @@ def main():
                     Command("avancar", VariableReference("lado")),
                     Command("girar_direita", Literal(90, "inteiro")),
                     Assignment("lado",
-                        Literal(
-                            VariableReference("lado").value + 5, "inteiro"
+                        BinaryExpression(
+                            left=VariableReference("lado"),
+                            operator="+",
+                            right=Literal(5, "inteiro")
                         )
                     ),
                 ]
